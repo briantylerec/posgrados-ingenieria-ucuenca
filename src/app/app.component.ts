@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Centro de Posgrados - Facultad de Ingeniería UCuenca';
+  title = 'Test Centro de Posgrados - Facultad de Ingeniería UCuenca';
 }

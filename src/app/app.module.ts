@@ -34,16 +34,8 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     RouterModule.forRoot([
       {
-      path: '',
-      component: HomeComponent
-      },
-      {
         path: 'login',
         component: LoginComponent
-      },
-      {
-        path: 'admin',
-        component: AdminComponent
       }
     ]),
     AgmCoreModule.forRoot({
@@ -53,10 +45,7 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent,
-    AdminComponent,
-    HomeComponent,
-
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,7 +15,10 @@ export class LoginComponent implements OnInit {
 
   loginUser(event){
     event.preventDefault()
-    console.log(event)
+    const target = event.target
+    const username = target.queryselector('#username').value
+    const password = target.queryselector('#password').value
+    console.log(event, username, password)
   }
 
   onSubmit(){

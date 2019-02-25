@@ -48,7 +48,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

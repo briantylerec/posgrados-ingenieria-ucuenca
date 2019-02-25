@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'environments/environment';
+import { AlertService, AuthenticationService } from '../_services';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,9 @@ import { environment } from 'environments/environment';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
   }
@@ -16,6 +19,10 @@ export class LoginComponent implements OnInit {
   loginUser(event){
     event.preventDefault()
     console.log(event)
+  }
+
+  onSubmit(){
+
   }
 
 }

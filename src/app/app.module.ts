@@ -40,11 +40,9 @@ import { UserService } from './service/user.service';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent,
-    UserService,
-
+    LoginComponent
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,45 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthenticationService} from "../service/auth.service";
-import {Router, ActivatedRoute} from "@angular/router";
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
 
-  loginForm: FormGroup;
-  submitted = false;
-  invalidLogin: boolean = false;
-  returnUrl: string;
-  
-  constructor(
-    private formBuilder: FormBuilder, 
-    private route: ActivatedRoute,
-    private router: Router, 
-    private authService: AuthenticationService
-    ) { }
+    constructor(public router: Router) {}
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.loginForm.invalid) {
-      return;
+    ngOnInit() {}
+
+    ngAfterViewInit() {
+        $(function() {
+            $(".preloader").fadeOut();
+        });
+        $(function() {
+            (<any>$('[data-toggle="tooltip"]')).tooltip()
+        });
+        $('#to-recover').on("click", function() {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
     }
-    if(this.loginForm.controls.email.value == 'dhiraj@gmail.com' && this.loginForm.controls.password.value == 'password') {
-        this.router.navigate(['dashboard']);
-    }else {
-      this.invalidLogin = true;
-    }
-  }
 
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-    });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
+    onLoggedin() {
+        localStorage.setItem('isLoggedin', 'true');
+    }
 
 }
